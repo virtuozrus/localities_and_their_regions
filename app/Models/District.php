@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class District
- * @package App
+ * @package App\Models
  *
  * @property int $id
  * @property string $name
@@ -19,8 +19,11 @@ class District extends Model
 
     public $timestamps = false;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function locality()
     {
-        return $this->belongsTo(Locality::class, 'id', 'locality');
+        return $this->belongsTo(Locality::class, 'locality');
     }
 }

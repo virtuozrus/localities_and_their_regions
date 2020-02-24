@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Region
- * @package App
+ * @package App\Models
  *
  * @property int $id
  * @property string $name
@@ -18,6 +18,9 @@ class Region extends Model
 
     public $timestamps = false;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function localities()
     {
         return $this->hasMany(Locality::class, 'region', 'id');
